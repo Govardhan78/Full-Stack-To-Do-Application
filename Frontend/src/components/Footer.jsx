@@ -7,13 +7,15 @@ export default function Footer() {
           <span>✅</span>
           <span className="footer-brand-name">TaskFlow</span>
         </div>
-        <p className="footer-copy">© {year} TaskFlow. Built with the MERN Stack.</p>
+        <p className="footer-copy">© {year} Govardhan🧡. Built with the MERN Stack.</p>
         <div className="footer-links">
           <span>React</span>
           <span className="footer-dot">·</span>
           <span>Node.js</span>
           <span className="footer-dot">·</span>
           <span>MongoDB</span>
+          <span className="footer-dot">·</span>
+          <span>Express.js</span>
         </div>
       </div>
     </footer>
