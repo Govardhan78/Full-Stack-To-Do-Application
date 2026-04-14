@@ -9,18 +9,22 @@ connectDB();
 const app = express();
 
 const allowedOrigins = [
-  "http://localhost:5173",
-  process.env.FRONTEND_URL, // e.g. https://your-app.vercel.app
+  'http://localhost:5173',
+  'http://localhost:5174',
+  'http://localhost:5175',
+  process.env.FRONTEND_URL, // Vercel URL set in Render env vars
 ].filter(Boolean);
 
 app.use(
   cors({
     origin: (origin, cb) => {
-      if (!origin || allowedOrigins.includes(origin)) cb(null, true);
-      else cb(new Error("Not allowed by CORS"));
+      // allow requests with no origin (mobile apps, curl, Postman)
+      if (!origin) return cb(null, true);
+      if (allowedOrigins.includes(origin)) return cb(null, true);
+      cb(new Error(`CORS blocked: ${origin}`));
     },
     credentials: true,
-  }),
+  })
 );
 app.use(express.json());
 
